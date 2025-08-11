@@ -1176,5 +1176,24 @@
 
         ReactDOM.render(React.createElement(LifeAbundantlyBillingSystem), document.getElementById('root'));
     </script>
-</body>
+<style>
+/* iPad Pro Fix for Contracted/Active Overlap */
+@media screen and (min-width: 768px) {
+    .bg-slate-50.rounded-xl.p-6 .flex.items-end.justify-between {
+        display: block !important;
+    }
+    
+    .bg-slate-50.rounded-xl.p-6 .flex.items-end.justify-between > div:first-child {
+        margin-bottom: 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    .bg-slate-50.rounded-xl.p-6 .flex.items-end.justify-between > button {
+        float: right !important;
+        margin-top: -2rem !important;
+    }
+}
+</style></body>
 </html>
