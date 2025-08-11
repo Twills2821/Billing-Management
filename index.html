@@ -188,7 +188,40 @@
             const [lastSaved, setLastSaved] = useState(new Date());
             const [notifications, setNotifications] = useState([]);
             const [showExportModal, setShowExportModal] = useState(false);
+            // Browser Storage Functions - Auto-save and Auto-load
+    useEffect(() => {
+        // Load saved data on startup
+        const savedClients = localStorage.getItem('lifeAbundantly_clients');
+        const savedWeeklyData = localStorage.getItem('lifeAbundantly_weeklyData');
+        
+        if (savedClients) {
+            try {
+                const parsedClients = JSON.parse(savedClients);
+                setClients(parsedClients);
+            } catch (error) {
+                console.log('Error loading clients:', error);
+            }
+        }
+        
+        if (savedWeeklyData) {
+            try {
+                const parsedWeeklyData = JSON.parse(savedWeeklyData);
+                setWeeklyData(parsedWeeklyData);
+            } catch (error) {
+                console.log('Error loading weekly data:', error);
+            }
+        }
+    }, []);
 
+    // Auto-save clients whenever they change
+    useEffect(() => {
+        localStorage.setItem('lifeAbundantly_clients', JSON.stringify(clients));
+    }, [clients]);
+
+    // Auto-save weekly data whenever it changes
+    useEffect(() => {
+        localStorage.setItem('lifeAbundantly_weeklyData', JSON.stringify(weeklyData));
+    }, [weeklyData]);
             useEffect(() => {
                 checkDeadlines();
             }, [weeklyData]);
