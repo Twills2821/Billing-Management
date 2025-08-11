@@ -998,18 +998,7 @@ f<!DOCTYPE html>
                                                     onChange={(e) => setCurrentWeek(e.target.value)}
                                                     className="px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-rose-500 focus:border-rose-500"
                                                     
-    {weeklyData.length > 0 && (select
-        value={selectedWeekIndex}
-        onChange={(e) => setSelectedWeekIndex(parseInt(e.target.value))}
-        className="px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-rose-500 focus:border-rose-500 bg-white"
-    >
-        {weeklyData.map((week, index) => (
-            <option key={index} value={index}>
-                Week of {new Date(week.weekStart).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - {new Date(week.weekEnd).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-            </option>
-        ))}
-    </select>
-)}                                                />
+                                 />
                                                 <button
                                                     onClick={addWeek}
                                                     className="flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 shadow-lg transition-all duration-200"
